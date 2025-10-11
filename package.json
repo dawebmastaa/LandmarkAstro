@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev --site http://localhost:4321/",
     "start": "astro dev --site http://localhost:4321/",
-    "build": "astro build --site https://dawebmastaa.github.io/",
+    "build": "astro build --site https://test1.ruletheweb.us/",
     "preview": "astro preview",
     "astro": "astro"
   },
