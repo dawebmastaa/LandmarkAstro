@@ -1,7 +1,7 @@
 # 💫 About Me
 All things modern web. Distilling the noise to find the tools to more easily create great web projects.
 
-I am NOT a developer. I am a consultant and problem solver for small business owners and solopreneurs, that just happens to have over 25 years experience writing code.
+I am NOT a developer. I am a consultant and problem solver for small business owners and solopreneurs, that just happens to have over 40 years experience writing code.
 
 
 ## 💻 Tech Stack
