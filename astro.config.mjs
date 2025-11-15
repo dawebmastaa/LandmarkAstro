@@ -1,13 +1,15 @@
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
-
-import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  outDir: './docs',
-  integrations: [tailwind()],
+	outDir: './docs',
+	site: 'http://localhost:4321/',
+	vite: {
+		plugins: [tailwindcss()],
+	},
 
-  build: {
+	build: {
     assets: 'compiled',
     site: 'https://test1.ruletheweb.us/',
   },
