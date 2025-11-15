@@ -16,7 +16,7 @@ const { title, description, robots } = Astro.props;
 <!doctype html>
 <html lang="en" class="dark">
     <head>
-        <base href={import.meta.env.SITE} />
+        <base href={Astro.url.origin} />
         <link rel="canonical" href={Astro.request.url} />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
