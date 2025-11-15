@@ -7,14 +7,11 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	outDir: './docs',
-	site: 'http://localhost:4321/',
+	site: import.meta.env.DEV 
+    ? 'http://localhost:4321/'
+    : 'https://test1.ruletheweb.us/',
 
 	vite: {
 		plugins: [tailwindcss()],
 	},
-
-	build: {
-    assets: 'compiled',
-    site: 'https://test1.ruletheweb.us/',
-  },
 });
