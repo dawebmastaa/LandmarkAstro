@@ -1,28 +1,19 @@
 {
-  "name": "astro-tailwind4-daisyui5-template",
+  "name": "Astro Landwind",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "format": "biome format --write .",
-    "lint": "biome lint --write .",
-    "check": "biome check --write .",
-    "check:ci": "biome check ."
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "latest",
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest",
-    "daisyui": "latest",
     "@astrojs/mdx": "latest",
     "@astrojs/sitemap": "latest",
-    "@astrojs/tailwind": "latest",
     "flowbite": "latest"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "latest"
   }
 }
