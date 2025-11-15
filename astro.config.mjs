@@ -9,5 +9,6 @@ export default defineConfig({
 
   build: {
     assets: 'compiled',
-  }
+    site: 'https://test1.ruletheweb.us/',
+  },
 });
