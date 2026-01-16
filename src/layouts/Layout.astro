@@ -23,6 +23,7 @@ const { title, description, robots, sitename = "Rule The Web" } = Astro.props;
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/img/logo.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
         <Meta title={title} description={description} robots={robots} sitename={sitename} />
         <Schema types={['website', 'webpage']} sitename={sitename} title={title} description={description} />
 

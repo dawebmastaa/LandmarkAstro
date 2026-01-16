@@ -17,6 +17,7 @@ export default defineConfig({
       imports: [
         { name: 'Images', from: '~/components/ui/Images.astro' }
       ]
-    })
+    }),
+    sitemap()
   ],
 });
