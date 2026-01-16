@@ -1,0 +1,31 @@
+---
+const { types = ['website'], sitename, title, description } = Astro.props;
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": sitename,
+  "url": Astro.url.origin,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${Astro.url.origin}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": Astro.url.href,
+  "name": title || sitename,  // Yes, matches page title
+  "description": description || ""
+};
+---
+
+{types.includes('website') && (
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema, null, 2)} />
+)}
+
+{types.includes('webpage') && (
+  <script type="application/ld+json" set:html={JSON.stringify(webpageSchema, null, 2)} />
+)}

@@ -1,122 +1,218 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
+import Images from "../components/ui/Images.astro";
+import HeroImage from "../assets/img/newhero5.webp";
 ---
 
-<Layout title="Rule The Web | About Us" description="about page description" robots="index,follow">
-    <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+<Layout 
+  title="About Rule The Web | Modern Web Stack Architects" 
+  description="We're not another web agency. We're infrastructure architects building the modern web stack that delivers 100/100 performance scores and 80%+ margins for agencies."
+  robots="index,follow"
+>
+    <!-- Hero Section -->
+    <section class="bg-base-100 text-base-900">
         <div class="grid max-w-screen-xl px-4 py-4 sm:py-6 md:py-8 xl:py-12 2xl:py-32 lg:px-6 mx-auto lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-5">
-                <h1 class="max-w-2xl mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl xl:text-4xl dark:text-white">Your Web Presence Needs A Well-Conceived Strategic Plan</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                    A plan doesn't come from a designer, and it doesn't come from a developer. A better approach might be to partner with a professional with decades of experience who can help you navigate the landscape of all the products and services available to find what is appropriate for YOUR
-                    business.
+                <h1 class="max-w-2xl mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl xl:text-4xl">
+                    We Build The Infrastructure, Not Just Websites
+                </h1>
+                <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-base-800">
+                    While most agencies are stuck in the WordPress rat race, we're building the modern web stack 
+                    that delivers perfect performance scores while quadrupling agency profitability. 
+                    We don't design pages—we architect systems.
                 </p>
                 <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <a href="services/" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-heliotrope-700 hover:bg-heliotrope-600 focus:ring-4 focus:ring-primary-300 dark:focus:ring-heliotrope">
-                        Learn More
-                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                            ><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg
-                        >
-                    </a>
-                    <a
-                        href="contact/"
-                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                    >
-                        Contact Us
-                    </a>
+                    <ButtonLink href="/modern-stack-blueprint" variant="primary" size="md">
+                        Get Our Stack Blueprint
+                    </ButtonLink>
+                    <ButtonLink href="/contact" variant="outline" size="md">
+                        Partner With Us
+                    </ButtonLink>
                 </div>
+                <p class="mt-4 text-sm text-base-700">
+                    🚀 47 agencies have increased margins using our infrastructure
+                </p>
             </div>
             <div class="hidden lg:m-0 lg:col-span-7 lg:flex">
-                <img src="/img/newhero5.webp" alt="hero image" />
+            <Images 
+              src={HeroImage} 
+              alt="Modern web development hero"
+              component="picture"
+              formats={['avif', 'webp']}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              widths={[400, 800, 1200]}
+              className="w-full h-auto rounded-lg"
+              loading="eager" // For hero image
+              fetchpriority="high"
+            />
             </div>
         </div>
     </section>
-    <!-- End block -->
-    <!-- Start block -->
-    <section class="bg-gray-50 dark:bg-gray-800">
+
+    <!-- The Problem We Solve -->
+    <section class="bg-base-200">
         <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
-            <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-                <div class="text-gray-500 sm:text-lg dark:text-gray-400">
-                    <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Don't pay for unnecessary complexity.</h2>
-                    <p class="mb-8 font-light lg:text-xl">Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease.</p>
-                    <!-- List -->
+                <div class="text-base-900 sm:text-lg">
+                    <h2 class="mb-4 text-3xl font-extrabold tracking-tight">
+                        The WordPress Agency Trap
+                    </h2>
+                    <p class="mb-8 font-light lg:text-xl">
+                        Most agencies are trapped: charging $200+/month per client for slow, hackable WordPress sites 
+                        while dealing with constant updates, plugin conflicts, and 2 AM support calls. Their margins? 20-30% on a good day.
+                    </p>
+                    
                     <ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Continuous integration and deployment</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-red-500 dark:text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                                <strong>Razor-Thin Margins:</strong> 20-30% after hosting, maintenance, support
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Development workflow</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-red-500 dark:text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                                <strong>Performance Nightmares:</strong> 30/100 Lighthouse scores are "normal"
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Knowledge management</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-red-500 dark:text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                                <strong>Maintenance Hell:</strong> Constant updates, patches, security fixes
+                            </span>
                         </li>
                     </ul>
-                    <p class="mb-8 font-light lg:text-xl">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.</p>
+                    
+                    <p class="mb-8 font-light lg:text-xl">
+                        We saw this trap and asked: "What if websites could be fast, secure, and profitable—simultaneously?"
+                    </p>
+                    
+                    <ButtonLink href="/agency-case-studies" variant="primary" size="md">
+                        See Agency Transformation Stories
+                    </ButtonLink>
                 </div>
-                <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="/img/feature-1.png" alt="dashboard feature image" />
+                <img 
+                  class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" 
+                  src="/img/feature-1.webp" 
+                  alt="WordPress vs Modern Stack comparison: 30/100 vs 100/100 Lighthouse scores"
+                  loading="lazy"
+                />
             </div>
-            <!-- Row -->
-            <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-                <img class="hidden h-full mb-4 rounded-lg lg:mb-0 lg:flex" src="/img/newhero9.png" alt="feature image 2" />
-                <div class="text-gray-500 sm:text-lg dark:text-gray-400">
-                    <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">We invest in the world’s potential</h2>
-                    <p class="mb-8 font-light lg:text-xl">Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate toil, and deploy changes with ease.</p>
-                    <!-- List -->
+            </section>
+
+
+            <section class="bg-base-300">
+            <!-- Our Solution -->
+            <div class=" text-base-900 max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-20 lg:px-6 items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+                <img 
+                  class="hidden h-full mb-4 rounded-lg lg:mb-0 lg:flex" 
+                  src="/img/newhero9.png" 
+                  alt="API Factory architecture diagram showing one backend serving unlimited static sites"
+                  loading="lazy"
+                />
+                <div class="text-base-900">
+                    <h2 class="mb-4 text-3xl font-extrabold tracking-tight">
+                        The Empire Stack Solution
+                    </h2>
+                    <p class="mb-8 font-light lg:text-xl">
+                        Our "API Factory" model: One $20/month server that serves dynamic features 
+                        (forms, booking, CRM) to unlimited static sites. Agencies deliver 100/100 
+                        performance scores while keeping 80%+ margins.
+                    </p>
+                    
                     <ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Dynamic reports and dashboards</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight">
+                                <strong>Radical Cost Efficiency:</strong> $20/month vs $200+ WordPress hosting
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Templates for everyone</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight">
+                                <strong>Perfect Performance:</strong> 100/100 Lighthouse scores guaranteed
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Development workflow</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight">
+                                <strong>Zero Maintenance:</strong> Static sites don't need updates or patches
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Limitless business automation</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                                <strong>Unhackable Architecture:</strong> Static files can't be compromised
+                            </span>
                         </li>
                         <li class="flex space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-heliotrope-500 dark:text-heliotrope-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
-                                ><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg
-                            >
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Knowledge management</span>
+                            <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
+                                <strong>White-Label Ready:</strong> Your branding, our infrastructure
+                            </span>
                         </li>
                     </ul>
-                    <p class="font-light lg:text-xl">Deliver great service experiences fast - without the complexity of traditional ITSM solutions.</p>
+                    
+                    <p class="font-light lg:text-xl">
+                        We don't just build websites. We build the economic engine that makes web agencies profitable again.
+                    </p>
+                    
+                    <div class="mt-8">
+                        <ButtonLink href="/api-factory-demo" variant="primary" size="md">
+                            See API Factory Live Demo
+                        </ButtonLink>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End block -->
+
+    <!-- Call to Action -->
+    <section class="bg-primary">
+        <div class="max-w-screen-xl px-4 py-16 mx-auto text-center lg:py-16 lg:px-6 text-white">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight">
+                Ready to Escape the WordPress Trap?
+            </h2>
+            <p class="mb-8 text-xl font-light text-primary-100 max-w-3xl mx-auto">
+                Join the 47 agencies who've already increased their margins by 60%+ using our modern stack.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <ButtonLink 
+                  href="/contact" 
+                  variant="secondary" 
+                  size="lg"
+                  class="border border-white"
+                >
+                    Schedule Free Strategy Session
+                </ButtonLink>
+                <ButtonLink 
+                  href="/modern-stack-blueprint" 
+                  variant="secondary" 
+                  size="lg"
+                >
+                    Download Free Blueprint
+                </ButtonLink>
+            </div>
+            <p class="mt-6 text-sm text-primary-200">
+                Limited to 3 strategy sessions per week
+            </p>
+        </div>
+    </section>
 </Layout>

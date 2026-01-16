@@ -1,0 +1,126 @@
+---
+import ButtonLink from '../ui/ButtonLink.astro';
+import ModeSwitch from '../ui/ModeSwitch.astro';
+
+// mobile-menu data and logic
+const menuId = 'mobile-menu-2';
+const buttonId = 'mobile-menu-button';
+
+// Menu items array for cleaner markup
+const menuItems = [
+  { href: '/', label: 'Home' },
+  { href: 'about/', label: 'About' },
+  { href: 'services/', label: 'Services' },
+  { href: 'contact/', label: 'Contact' },
+];
+
+// Current page detection
+const currentPath = Astro.url.pathname.replace(/^\//, '');
+---
+<header class="p-0 m-0 w-full">
+<nav aria-label="Main navigation" class="bg-white pt-3 dark:bg-gray-900">
+  <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
+    
+    <!-- Logo/Home link -->
+    <a href="/" aria-label="Home" class="flex items-center">
+      <img src="/img/newlogo2.png" class="h-8 mr-3 md:h-12 lg:h-16 2xl:h-20" alt="Rule The Web Return to Homepage" />
+      <span class="self-center text-xl md:text-3xl font-semibold whitespace-nowrap text-gray-900 dark:text-white">Rule The Web</span>
+    </a>
+    
+    <!-- Right side: Mode switch, CTA button, Mobile toggle -->
+    <div class="flex items-center lg:order-2 gap-2">
+      <ModeSwitch />
+      <ButtonLink href="/contact" variant="secondary" size="sm" mobileHidden>Get Started</ButtonLink>
+      
+      <!-- Mobile menu toggle button -->
+      <button
+        id={buttonId}
+        type="button"
+        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls={menuId}
+        aria-expanded="false"
+        aria-label="Toggle main menu"
+      >
+        <span class="sr-only">Open main menu</span>
+        <!-- Hamburger icon (visible when menu closed) -->
+        <svg id="hamburger-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+        <!-- Close icon (hidden when menu closed) -->
+        <svg id="close-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Menu items (hidden on mobile, flex on desktop) -->
+    <div 
+      id={menuId}
+      class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1"
+    >
+      <ul class="flex flex-col mt-4 text-lg lg:flex-row lg:space-x-8 lg:mt-0">
+        {menuItems.map(item => {
+          const isActive = currentPath === item.href.replace(/\/$/, '');
+          return (
+            <li>
+              <a 
+                href={item.href}
+                class={`block py-2 pl-3 pr-4 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-heliotrope-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700 ${isActive ? "text-heliotrope-700 dark:text-white block" + ' aria-current="page"' : "text-gray-700"}`}
+                {isActive && { 'aria-current': 'page' }}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+
+<!-- Minimal vanilla JavaScript for mobile menu toggle -->
+<script>
+  (function() {
+    const button = document.getElementById('${buttonId}');
+    const menu = document.getElementById('${menuId}');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    if (!button || !menu) return;
+    
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      // Toggle menu visibility
+      menu.classList.toggle('hidden');
+      
+      // Toggle icons
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+      
+      // Update ARIA attributes
+      button.setAttribute('aria-expanded', !isExpanded);
+      
+      // Optional: Close menu when clicking a link (for single page nav)
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+    
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>

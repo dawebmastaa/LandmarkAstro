@@ -1,5 +1,5 @@
 {
-  "name": "LandwindAstro Deno",
+  "name": "RuleTheWeb",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "astro": "latest",
+    "sharp": "latest",
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest",
-    "daisyui": "latest",
     "@astrojs/mdx": "latest",
-    "@astrojs/sitemap": "latest",
-    "flowbite": "latest"
+    "astro-auto-import": "latest",
+    "@astrojs/sitemap": "latest"
   },
   "devDependencies": {
     "@biomejs/biome": "latest"

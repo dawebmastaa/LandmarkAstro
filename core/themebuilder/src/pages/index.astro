@@ -1,0 +1,489 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { generateCompletePalette } from '../lib/paletteGenerator.js';
+import { generateThemeCSS, downloadCSS } from '../lib/themeExporter.js';
+import '../../src/styles/global.css'; // Your Empire CSS
+
+// Component logic
+let currentPalette = null;
+let baseColor = '#570df8';
+---
+
+<Layout
+  title="Rule The Web ThemeBuilder"
+  description="ThemeBuilder is a powerful tool for creating custom themes for your website. With ThemeBuilder, you can easily customize the colors, fonts, and layout of your website to match your brand and style."
+  robots="noindex,nofollow"
+>
+  <section class="p-10 bg-base-100 text-base-900 min-h-screen max-w-screen-xl mx-auto space-6">
+
+      <!-- Color Picker Section -->
+      <div class="color-picker-section">
+          <div class="color-input-group">
+              <label for="baseColor">Base Color</label>
+              <div class="color-inputs">
+                  <input type="color" id="baseColor" value="#570df8" />
+                  <input type="text" id="colorHex" value="#570df8" placeholder="#RRGGBB" />
+              </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="palette-type-selector">
+                  <label for="paletteType" style="display: block; margin-bottom: 0.5rem;">Palette Type:</label>
+                  <select id="paletteType" class="border p-2 outlineselect select-bordered" style="color: var(--color-text);">
+                      <option value="complete" style="color: var(--color-text); background: var(--color-bg);">Complete (All Colors)</option>
+                      <option value="monochromatic" style="color: var(--color-text); background: var(--color-bg);">Monochromatic</option>
+                      <option value="analogous" style="color: var(--color-text); background: var(--color-bg);">Analogous</option>
+                      <option value="complementary" style="color: var(--color-text); background: var(--color-bg);">Complementary</option>
+                      <option value="triadic" style="color: var(--color-text); background: var(--color-bg);">Triadic</option>
+                      <option value="tetradic" style="color: var(--color-text); background: var(--color-bg);">Tetradic</option>
+                      <option value="split-complementary" style="color: var(--color-text); background: var(--color-bg);">Split Complementary</option>
+                  </select>
+              </div>
+
+              <div class="button-group" style="display: flex; gap: 0.5rem;">
+                  <button class="btn btn-primary px-3 py-1" onclick="generatePalette()">
+                      Generate Palette
+                  </button>
+                  <button class="btn btn-primary px-3 py-1" onclick="generateRandom()">
+                      Random Palette
+                  </button>
+                  <button class="btn btn-outline px-3 py-1" onclick="resetToDefault()">
+                      Reset
+                  </button>
+              </div>
+          </div>
+      </div>
+
+      <!-- Palette Display -->
+      <div id="paletteDisplay" class="palette-section">
+          <div class="mb-3">
+              <h3>Generated Palette</h3>
+              <p>Pick a base color and click "Generate Palette" to see your color scales here.</p>
+          </div>
+      </div>
+
+      <!-- Export Section -->
+      <div class="export-section">
+          <h3>Export Theme Files</h3>
+          <p class="mb-3">Download complete theme files for use in your Empire Design System projects.</p>
+          <div class="export-buttons">
+              <button class="btn btn-primary px-3 py-1"  onclick="exportLightTheme()">
+                  📥 Download Light Theme
+              </button>
+              <button class="btn btn-secondary px-3 py-1" onclick="exportDarkTheme()">
+                  🌙 Download Dark Theme
+              </button>
+              <button class="btn btn-outline px-3 py-1" onclick="exportBothThemes()">
+                  ⬇️ Download Both
+              </button>
+          </div>
+          <p class="mt-2" style="font-size: 0.875rem; opacity: 0.7;">
+              Files will be saved as: <code>theme-light.css</code> and <code>theme-dark.css</code>
+          </p>
+      </div>
+  </div>
+
+  <style>
+      :root {
+          font-family: system-ui, sans-serif;
+          line-height: 1.5;
+      }
+
+      h1 {
+          font-size: 2.5rem;
+          margin-bottom: 0.5rem;
+      }
+
+      p {
+          color: var(--color-text-muted);
+          margin-bottom: 2rem;
+      }
+
+      /* Color Picker Section */
+      .color-picker-section {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+          margin-bottom: 3rem;
+          padding: 2rem;
+          background: var(--color-bg-muted);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+          align-items: center;
+      }
+
+      .color-input-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+      }
+
+      .color-input-group label {
+          font-weight: 600;
+      }
+
+      .color-inputs {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+      }
+
+      #baseColor {
+          width: 80px;
+          height: 80px;
+          border: 2px solid var(--color-border);
+          border-radius: var(--radius-md);
+          cursor: pointer;
+      }
+
+      #colorHex {
+          padding: 0.75rem 1rem;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-md);
+          font-family: monospace;
+          font-size: 1rem;
+          width: 140px;
+      }
+
+      .button-group {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+      }
+
+      /* Palette Display - FIXED FOR HORIZONTAL SQUARES */
+      .palette-section {
+          margin: 2rem 0;
+          padding: 2rem;
+          background: var(--color-bg-muted);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+      }
+
+      .palette-category {
+          margin-bottom: 2.5rem;
+      }
+
+      .palette-category:last-child {
+          margin-bottom: 0;
+      }
+
+      .palette-category h4 {
+          margin-bottom: 1rem;
+          font-size: 1.25rem;
+          color: var(--color-text);
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+      }
+
+      /* REPLACE your entire .palette-grid and .color-swatch CSS with this: */
+
+      .color-swatch {
+          width: 80px !important;
+          height: 80px !important;
+          border: 2px solid var(--color-border) !important;
+          border-radius: var(--radius-md) !important;
+          display: inline-block !important;
+          text-align: center !important;
+          line-height: 80px !important; /* centers text */
+          font-size: 11px !important;
+          font-weight: 600 !important;
+          color: white !important;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+          cursor: pointer !important;
+          margin-right: 8px !important;
+          margin-bottom: 8px !important;
+      }
+
+      .color-swatch:hover {
+          transform: scale(1.1) !important;
+          z-index: 1 !important;
+      }
+
+      .color-swatch:hover {
+          transform: scale(1.1);
+          z-index: 1;
+      }
+
+      /* REMOVE these unused styles */
+      .color-swatch-container {
+          display: none;
+      }
+
+      .shade-label {
+          display: none;
+      }
+
+      /* Export Section */
+      .export-section {
+          margin-top: 3rem;
+          padding: 2rem;
+          background: var(--color-bg-muted);
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border);
+      }
+
+      .export-section h3 {
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+      }
+
+      .export-buttons {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+      }
+
+      /* Spacing Utilities */
+      .mb-1 { margin-bottom: 0.5rem; }
+      .mb-2 { margin-bottom: 1rem; }
+      .mb-3 { margin-bottom: 1.5rem; }
+      .mb-4 { margin-bottom: 2rem; }
+
+      .mt-1 { margin-top: 0.5rem; }
+      .mt-2 { margin-top: 1rem; }
+      .mt-3 { margin-top: 1.5rem; }
+      .mt-4 { margin-top: 2rem; }
+
+      /* Status Message */
+      .status-message {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 1000;
+          padding: 1rem 1.5rem;
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-lg);
+          animation: slideIn 0.3s ease;
+      }
+
+      @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+      }
+  </style>
+
+  <script>
+      // Get DOM elements
+      const baseColorInput = document.getElementById('baseColor');
+      const colorHexInput = document.getElementById('colorHex');
+      const paletteDisplay = document.getElementById('paletteDisplay');
+
+      // Sync color picker and hex input
+      baseColorInput.addEventListener('input', (e) => {
+          colorHexInput.value = e.target.value;
+      });
+
+      colorHexInput.addEventListener('input', (e) => {
+          if (/^#[0-9A-F]{6}$/i.test(e.target.value)) {
+              baseColorInput.value = e.target.value;
+          }
+      });
+
+      // Generate palette from current color
+      window.generatePalette = async function() {
+          const baseColor = baseColorInput.value;
+          const paletteType = document.getElementById('paletteType').value;
+
+          try {
+              const {
+                  generateCompletePalette,
+                  generateMonochromaticPalette,
+                  generateAnalogousPalette,
+                  generateComplementaryPalette,
+                  generateTriadicPalette,
+                  generateTetradicPalette,           // ADD THIS
+                  generateSplitComplementaryPalette
+              } = await import('../lib/paletteGenerator.js');
+
+              let palette;
+              switch(paletteType) {
+                  case 'monochromatic':
+                      palette = generateMonochromaticPalette(baseColor);
+                      break;
+                  case 'analogous':
+                      palette = generateAnalogousPalette(baseColor);
+                      break;
+                  case 'complementary':
+                      palette = generateComplementaryPalette(baseColor);
+                      break;
+                  case 'triadic':
+                      palette = generateTriadicPalette(baseColor);
+                      break;
+                  case 'tetradic':
+                      palette = generateTetradicPalette(baseColor);
+                      break;
+                  case 'splitComplementary':
+                      palette = generateSplitComplementaryPalette(baseColor);
+                      break;
+                  default: // 'complete'
+                      palette = generateCompletePalette(baseColor);
+              }
+
+              displayPalette(palette);
+              window.currentPalette = palette;
+
+          } catch (error) {
+              console.error('Error generating palette:', error);
+          }
+      };
+
+      // Generate random color
+      window.generateRandom = function() {
+          const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+          baseColorInput.value = randomColor;
+          colorHexInput.value = randomColor;
+          generatePalette();
+      };
+
+      // Display palette in UI - HORIZONTAL ROWS
+      function displayPalette(palette) {
+          let html = '<div class="mb-3"><h3>Generated Palette</h3></div>';
+
+          // Show each color category in HORIZONTAL GRID
+          for (const [category, colors] of Object.entries(palette)) {
+              html += `
+                  <div class="palette-category">
+                      <h4 class="mb-2">
+                          <span class="palette-label">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                          <span style="font-size: 0.875rem; opacity: 0.7; margin-left: 0.5rem;">
+                              ${Object.keys(colors).length} shades
+                          </span>
+                      </h4>
+
+                      <!-- HORIZONTAL GRID OF SQUARES -->
+                      <div class="palette-grid">
+              `;
+
+              // Sort shades in order (50, 100, 200, ..., 950)
+              const sortedShades = Object.entries(colors).sort((a, b) => {
+                  const shadeOrder = {50:1,100:2,200:3,300:4,400:5,500:6,600:7,700:8,800:9,900:10,950:11};
+                  return shadeOrder[a[0]] - shadeOrder[b[0]];
+              });
+
+              for (const [shade, value] of sortedShades) {
+                html += `
+                    <div class="color-swatch"
+                         style="margin-right: 2px;background-color: ${value}; width: 80px; height: 80px; display: inline-block;"
+                         onclick="copyColorToClipboard('${value}')"
+                         title="${category}-${shade}: ${value}">
+                        ${shade}
+                    </div>
+                `;
+              }
+
+              html += `
+                      </div>
+                      <div style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">
+                          Base: ${colors[500]} • Click any square to copy value
+                      </div>
+                  </div>
+              `;
+          }
+
+          paletteDisplay.innerHTML = html;
+      }
+
+      // Copy color to clipboard
+      window.copyColorToClipboard = async function(colorValue) {
+          try {
+              await navigator.clipboard.writeText(colorValue);
+              showStatus(`Copied: ${colorValue}`, 'success');
+          } catch (err) {
+              console.error('Failed to copy:', err);
+              showStatus('Failed to copy', 'error');
+          }
+      };
+
+      // Status notification
+      function showStatus(message, type = 'info') {
+          // Remove existing status
+          const existing = document.querySelector('.status-message');
+          if (existing) existing.remove();
+
+          const status = document.createElement('div');
+          status.className = `status-message`;
+          status.textContent = message;
+
+          if (type === 'success') {
+              status.style.background = 'var(--color-success-50)';
+              status.style.border = '1px solid var(--color-success-200)';
+              status.style.color = 'var(--color-success-800)';
+          } else if (type === 'error') {
+              status.style.background = 'var(--color-error-50)';
+              status.style.border = '1px solid var(--color-error-200)';
+              status.style.color = 'var(--color-error-800)';
+          } else {
+              status.style.background = 'var(--color-info-50)';
+              status.style.border = '1px solid var(--color-info-200)';
+              status.style.color = 'var(--color-info-800)';
+          }
+
+          document.body.appendChild(status);
+
+          setTimeout(() => {
+              status.style.opacity = '0';
+              status.style.transition = 'opacity 0.3s';
+              setTimeout(() => status.remove(), 300);
+          }, 2000);
+      };
+
+      // Reset to default color
+      window.resetToDefault = function() {
+          baseColorInput.value = '#570df8';
+          colorHexInput.value = '#570df8';
+          generatePalette();
+      };
+
+      // Export light theme
+      window.exportLightTheme = async function() {
+          if (!window.currentPalette) {
+              alert('Generate a palette first!');
+              return;
+          }
+
+          const { generateThemeCSS, downloadCSS } = await import('../lib/themeExporter.js');
+          const css = generateThemeCSS(window.currentPalette, 'light');
+          downloadCSS(css, 'theme-light.css');
+      };
+
+      // Export dark theme
+      window.exportDarkTheme = async function() {
+          if (!window.currentPalette) {
+              alert('Generate a palette first!');
+              return;
+          }
+
+          const { generateThemeCSS, downloadCSS } = await import('../lib/themeExporter.js');
+          const css = generateThemeCSS(window.currentPalette, 'dark');
+          downloadCSS(css, 'theme-dark.css');
+      };
+
+      // Export both themes
+      window.exportBothThemes = async function() {
+          if (!window.currentPalette) {
+              alert('Generate a palette first!');
+              return;
+          }
+
+          const { generateThemeCSS, downloadCSS } = await import('../lib/themeExporter.js');
+
+          // Light theme
+          const lightCSS = generateThemeCSS(window.currentPalette, 'light');
+          downloadCSS(lightCSS, 'theme-light.css');
+
+          // Brief delay for sequential downloads
+          setTimeout(() => {
+              const darkCSS = generateThemeCSS(window.currentPalette, 'dark');
+              downloadCSS(darkCSS, 'theme-dark.css');
+          }, 100);
+      };
+
+      // Generate initial palette on load
+      setTimeout(generatePalette, 100);
+  </script>
+  </section>
+</Layout>

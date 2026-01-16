@@ -1,21 +1,29 @@
-@import "tailwindcss";
+/* Disable Tailwind's system preference detection */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Tailwind */
+@import 'tailwindcss';
+
+/* Our design system */
+@import '../../core/src/variables.css';
+@import '../../core/src/themes/light.css';
+@import '../../core/src/themes/dark.css';
+@import '../../core/src/components.css';
+
+body {
+  /* this is needed to override user light/dark selection */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
 
 @theme {
   /* Dark mode configuration */
   --color-scheme: light;
   --color-scheme-dark: dark;
-  
-  /* Your custom colors */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
 
   /* Heliotrope colors */
   --color-heliotrope-50: #f8edfd;
@@ -29,33 +37,8 @@
   --color-heliotrope-800: #5b166e;
   --color-heliotrope-900: #340940;
   --color-heliotrope-950: #200429;
-
-  /* Lilac bush colors */
-  --color-lilac-bush-50: #f2effd;
-  --color-lilac-bush-100: #e4dcfb;
-  --color-lilac-bush-200: #cebff8;
-  --color-lilac-bush-300: #bca4f5;
-  --color-lilac-bush-400: #ab8bf2;
-  --color-lilac-bush-500: #9c72ef;
-  --color-lilac-bush-600: #894dea;
-  --color-lilac-bush-700: #6f2acb;
-  --color-lilac-bush-800: #4c1a8f;
-  --color-lilac-bush-900: #2a0b53;
-  --color-lilac-bush-950: #180535;
-
-  /* Electric violet HSL variables */
-  --electric-violet-50: 265 100% 98%;
-  --electric-violet-100: 265 100% 95%;
-  --electric-violet-200: 265 100% 90%;
-  --electric-violet-300: 265 100% 85%;
-  --electric-violet-400: 265 100% 80%;
-  --electric-violet-500: 265 100% 75%;
-  --electric-violet-600: 265 100% 65%;
-  --electric-violet-700: 265 100% 55%;
-  --electric-violet-800: 265 100% 45%;
-  --electric-violet-900: 265 100% 35%;
-  --electric-violet-950: 265 100% 25%;
 }
 
-/* Dark mode support */
+/* Dark mode support 
 @custom-variant dark (&:where(.dark, .dark *));
+*/

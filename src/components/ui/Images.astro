@@ -1,0 +1,75 @@
+---
+import { Image, Picture } from 'astro:assets';
+
+interface Props {
+  src: any; // Image import
+  alt: string;
+  
+  // Component type selection
+  component?: 'img' | 'picture';
+  
+  // Common props
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  className?: string;
+  fetchpriority?: 'high' | 'low' | 'auto';
+  
+  // Responsive image props
+  sizes?: string;
+  widths?: number[];
+  densities?: string[];
+  
+  // Picture-specific props
+  formats?: ('avif' | 'webp' | 'png' | 'jpg' | 'jpeg')[];
+  
+  // Image-specific props
+  aspectRatio?: string | number;
+}
+
+const {
+  src,
+  alt,
+  component = 'img', // Default to <Image> component
+  loading = 'lazy',
+  decoding = 'async',
+  className = '',
+  fetchpriority = 'auto',
+  sizes = '(max-width: 768px) 100vw, 50vw',
+  widths,
+  densities,
+  formats = ['avif', 'webp'], // Default modern formats for <Picture>
+  aspectRatio,
+  ...rest
+} = Astro.props;
+---
+{
+  component === 'picture' ? (
+    <Picture
+      src={src}
+      alt={alt}
+      class:list={[className]}
+      loading={loading}
+      decoding={decoding}
+      fetchpriority={fetchpriority}
+      sizes={sizes}
+      widths={widths}
+      densities={densities}
+      formats={formats}
+      {...rest}
+    />
+  ) : (
+    <Image
+      src={src}
+      alt={alt}
+      class:list={[className]}
+      loading={loading}
+      decoding={decoding}
+      fetchpriority={fetchpriority}
+      sizes={sizes}
+      widths={widths}
+      densities={densities}
+      aspectRatio={aspectRatio}
+      {...rest}
+    />
+  )
+}

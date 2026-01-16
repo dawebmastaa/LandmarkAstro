@@ -1,0 +1,44 @@
+/* Disable Tailwind's system preference detection */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Tailwind */
+@import 'tailwindcss';
+
+/* Our design system */
+@import '../../../src/variables.css';
+@import '../../../src/themes/light.css';
+@import '../../../src/themes/dark.css';
+@import '../../../src/components.css';
+
+body {
+  /* this is needed to override user light/dark selection */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+}
+
+@theme {
+  /* Dark mode configuration */
+  --color-scheme: light;
+  --color-scheme-dark: dark;
+
+  /* Heliotrope colors */
+  --color-heliotrope-50: #f8edfd;
+  --color-heliotrope-100: #efd6fb;
+  --color-heliotrope-200: #e2b1f7;
+  --color-heliotrope-300: #d78ef3;
+  --color-heliotrope-400: #ce6af0;
+  --color-heliotrope-500: #c746ed;
+  --color-heliotrope-600: #a931ca;
+  --color-heliotrope-700: #83249d;
+  --color-heliotrope-800: #5b166e;
+  --color-heliotrope-900: #340940;
+  --color-heliotrope-950: #200429;
+}
+
+/* Dark mode support 
+@custom-variant dark (&:where(.dark, .dark *));
+*/
