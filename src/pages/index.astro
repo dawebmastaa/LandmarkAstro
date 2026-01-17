@@ -5,38 +5,34 @@ import Images from "../components/ui/Images.astro";
 import HeroImage from "../assets/img/newhero7.webp";
 ---
 
-<Layout 
-  title="Escape WordPress Bloat | Modern Static Websites That Actually Perform" 
+<Layout
+  title="Escape WordPress Bloat | Modern Static Websites That Actually Perform"
   description="Stop overpaying for slow, hackable WordPress sites. Get 100/100 Lighthouse scores for $20/month with our modern static site stack. Free blueprint download."
   robots="index,follow"
 >
   <!-- Hero Section -->
   <section class="bg-base-100 text-base-900">
-    <div class="grid max-w-screen-xl px-6 py-4 sm:py-6 md:py-8 xl:py-12 2xl:py-32 mx-auto lg:grid-cols-12">
+    <div class="grid max-w-7xl px-6 py-4 sm:py-6 md:py-8 xl:py-12 2xl:py-32 mx-auto lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-5">
-            <h1 class="max-w-2xl mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl xl:text-4xl">
+            <h1 class="max-w-2xl mb-4 text-2xl md:text-3xl xl:text-4xl font-extrabold leading-none tracking-tight">
                 The Modern Web Stack That Delivers 100/100 Performance & 80%+ Margins
             </h1>
             <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-base-800">
-                While most agencies struggle with bloated tech stacks and razor-thin margins, 
-                we've built a lean system that delivers perfect Lighthouse scores while 
+                While most agencies struggle with bloated tech stacks and razor-thin margins,
+                we've built a lean system that delivers perfect Lighthouse scores while
                 quadrupling your profitability. No complexity, just results.
             </p>
             <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                <ButtonLink href="/modern-stack-blueprint" variant="primary" size="sm">
-                    Get The Modern Stack Blueprint
-                </ButtonLink>
-                <ButtonLink href="/performance-demo" variant="outline" size="sm">
-                    See Live Performance Demo
-                </ButtonLink>
+                <ButtonLink href="/modern-stack-blueprint" variant="primary" size="sm">Get The Modern Stack Blueprint</ButtonLink>
+                <ButtonLink href="/performance-demo" variant="outline" size="sm">See Live Performance Demo</ButtonLink>
             </div>
             <p class="mt-4 text-sm text-base-700">
                 ⚡ 47 agencies increased margins by 60%+ using our stack
             </p>
         </div>
         <div class="hidden lg:m-0 lg:col-span-7 lg:flex">
-            <Images 
-              src={HeroImage} 
+            <Images
+              src={HeroImage}
               alt="Modern web development hero"
               component="picture"
               formats={['avif', 'webp']}
@@ -52,18 +48,18 @@ import HeroImage from "../assets/img/newhero7.webp";
 
   <!-- The Problem & Solution -->
   <section class="bg-base-300">
-    <div class="max-w-screen-xl px-6 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
+    <div class="max-w-7xl px-6 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
             <div class="text-base-900">
-                <h2 class="mb-4 text-3xl font-extrabold tracking-tight">
+                <h2 class="mb-4 text-2xl md:text-3xl xl:text-4xl font-extrabold tracking-tight">
                     Why Modern Agencies Choose Our Stack
                 </h2>
                 <p class="mb-8 font-light lg:text-xl text-base-800">
-                    Traditional web development has become a race to the bottom. 
-                    Our "API Factory" model flips the script: deliver better-performing sites 
+                    Traditional web development has become a race to the bottom.
+                    Our "API Factory" model flips the script: deliver better-performing sites
                     at lower cost while keeping the difference as pure profit.
                 </p>
-                
+
                 <ul role="list" class="pt-8 space-y-5 border-t border-base-300 my-7">
                     <li class="flex space-x-3">
                         <svg class="flex-shrink-0 w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
@@ -90,20 +86,17 @@ import HeroImage from "../assets/img/newhero7.webp";
                         </span>
                     </li>
                 </ul>
-                
+
                 <p class="mb-8 font-light lg:text-xl text-base-800">
-                    We partner with forward-thinking agencies to implement this stack as their 
+                    We partner with forward-thinking agencies to implement this stack as their
                     white-label solution. You get the results, we handle the infrastructure.
                 </p>
-                
-                <ButtonLink href="/agency-partnership" variant="primary" size="md">
-                    Explore Agency Partnership
-                </ButtonLink>
+                <ButtonLink href="/agency-partnership" variant="primary" size="md">Explore Agency Partnership</ButtonLink>
             </div>
-            <img 
-              class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" 
-              src="/img/feature-1.webp" 
-              alt="Dashboard showing agency profitability increase from 20% to 80% margins" 
+            <img
+              class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex"
+              src="/img/feature-1.webp"
+              alt="Dashboard showing agency profitability increase from 20% to 80% margins"
               loading="lazy"
             />
         </div>
@@ -115,18 +108,14 @@ import HeroImage from "../assets/img/newhero7.webp";
   <div class="max-w-7xl mx-auto container py-16 text-base-900">
     <div class="flex flex-col md:flex-row">
         <div class="flex flex-col justify-center w-full md:w-1/2 px-4 md:pr-12">
-            <p class="uppercase text-lg text-primary font-semibold leading-normal">
-                THE EMPIRE STACK
-            </p>
-            <h2 class="text-2xl md:text-4xl xl:text-5xl font-extrabold leading-tight py-4">
-                One $20/Month API Serves Unlimited Client Sites
-            </h2>
+            <p class="uppercase text-lg text-primary font-semibold leading-normal">THE EMPIRE STACK</p>
+            <h2 class="text-2xl md:text-3xl xl:text-4xl font-extrabold leading-tight py-4">One $20/Month API Serves Unlimited Client Sites</h2>
             <p class="mt-3 font-light lg:mb-8 md:text-lg lg:text-xl text-base-800">
-                Traditional web dev charges per site. Our "API Factory" model serves dynamic features 
-                (forms, bookings, CRM) to unlimited static sites from a single $20/month server. 
+                Traditional web dev charges per site. Our "API Factory" model serves dynamic features
+                (forms, bookings, CRM) to unlimited static sites from a single $20/month server.
                 Agencies keep the difference as pure profit.
             </p>
-            
+
             <div class="mt-8 space-y-4">
                 <div class="flex items-start">
                     <svg class="w-6 h-6 text-primary mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
@@ -157,14 +146,14 @@ import HeroImage from "../assets/img/newhero7.webp";
                 </div>
             </div>
         </div>
-        
+
         <!-- Right Side - Blueprint CTA -->
-        <div class="grid place-items-center bg-gradient-to-br from-primary-700 to-primary-900 w-full md:w-1/2 px-4 md:px-12 py-10 mt-8 md:mt-0 rounded-lg shadow-xl text-white">
+        <div class="grid place-items-center bg-gradient-to-br w-full md:w-1/2 px-4 md:px-12 py-10 mt-8 md:mt-0 rounded-lg shadow-xl text-white">
             <div class="text-center mb-4">
                 <h3 class="text-2xl font-bold mb-2">Free Download</h3>
                 <p class="">WordPress Escape Blueprint</p>
             </div>
-            
+
             <div class="space-y-6">
                 <div class="flex items-start">
                     <div class="bg-white/20 p-2 rounded-lg mr-4">
@@ -180,7 +169,7 @@ import HeroImage from "../assets/img/newhero7.webp";
                         <p class="text-sm mt-1">Step-by-step WordPress to static site migration</p>
                     </div>
                 </div>
-                
+
                 <div class="flex items-start">
                     <div class="bg-white/20 p-2 rounded-lg mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -195,7 +184,7 @@ import HeroImage from "../assets/img/newhero7.webp";
                         <p class="text-sm mt-1">See exactly how much you'll save monthly</p>
                     </div>
                 </div>
-                
+
                 <div class="flex items-start">
                     <div class="bg-white/20 p-2 rounded-lg mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -212,15 +201,14 @@ import HeroImage from "../assets/img/newhero7.webp";
                     </div>
                 </div>
             </div>
-            
+
             <div class="mt-8 text-center">
-                <ButtonLink 
-                  href="/free-blueprint-download" 
-                  variant="white-primary" 
+                <ButtonLink
+                  href="/free-blueprint-download"
+                  variant="white-primary"
                   size="md"
                   class="w-full"
-                >
-                    Download Free Blueprint (PDF)
+                >Download Free Blueprint (PDF)
                 </ButtonLink>
                 <p class="text-sm mt-2">127 downloads this week</p>
             </div>
@@ -231,14 +219,14 @@ import HeroImage from "../assets/img/newhero7.webp";
 
   <!-- Business Proof -->
   <section class="bg-base-100">
-    <div class="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
+    <div class="items-center max-w-7xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
       <div class="col-span-2 mb-8 text-base-900">
         <p class="text-lg font-medium text-primary">Proven Business Model</p>
-        <h2 class="mt-3 mb-4 text-3xl font-extrabold tracking-tight md:text-3xl">
+        <h2 class="mt-3 mb-4 text-2xl md:text-3xl font-extrabold tracking-tight">
           Agencies Adding $5k/Month With Our Stack
         </h2>
         <p class="font-light sm:text-xl text-base-800">
-          While WordPress agencies struggle with 20% margins, our partners average 80% margins 
+          While WordPress agencies struggle with 20% margins, our partners average 80% margins
           by eliminating hosting costs and maintenance overhead.
         </p>
         <div class="pt-6 mt-6 space-y-4 border-t border-base-300">
@@ -260,7 +248,7 @@ import HeroImage from "../assets/img/newhero7.webp";
           </div>
         </div>
       </div>
-      <div class="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 text-base-900">
+      <div class="col-span-2 space-y-8 sm:grid sm:grid-cols-2 md:gap-12 md:space-y-0 text-base-900">
         <div>
           <div class="w-10 h-10 mb-2 text-primary md:w-12 md:h-12">
             <span class="text-2xl font-bold">90%</span>
@@ -294,42 +282,36 @@ import HeroImage from "../assets/img/newhero7.webp";
   </section>
 
   <!-- Testimonial -->
-  <section class="bg-base-200 border-t border-base-300">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-24 lg:px-6">
-      <figure class="max-w-screen-md mx-auto">
+  <section class="bg-base-200 border border-base-300">
+    <div class="max-w-72xl px-4 py-8 mx-auto text-center lg:py-24 lg:px-6">
+      <figure class="max-w-3xl mx-auto">
         <svg class="h-12 mx-auto mb-3 text-base-400" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"></path>
         </svg>
         <blockquote>
-          <p class="text-xl font-medium text-base-900 md:text-2xl">
-            "We were paying $8,000/month for WordPress hosting across 40 client sites. 
-            After migrating to the Empire stack, our hosting costs dropped to $400/month 
+          <p class="text-md md:text-xl font-medium text-base-900">
+            "We were paying $8,000/month for WordPress hosting across 40 client sites.
+            After migrating to the Empire stack, our hosting costs dropped to $400/month
             and our support tickets decreased by 90%. This isn't just better technology—it's a better business model."
           </p>
         </blockquote>
         <figcaption class="flex items-center justify-center mt-6 space-x-3">
-          <img 
-            class="w-10 h-10 rounded-full" 
-            src="https://gravatar.com/userimage/98702177/e0373967533412a9a86a6b2e2fb9e176.jpeg" 
-            alt="Mike A., Agency Owner" 
+          <img
+            class="w-10 h-10 rounded-full"
+            src="https://gravatar.com/userimage/98702177/e0373967533412a9a86a6b2e2fb9e176.jpeg"
+            alt="Mike A., Agency Owner"
             loading="lazy"
           />
           <div class="flex items-center divide-x-2 divide-base-400">
             <div class="pr-3 font-medium text-base-900">Mike A.</div>
-            <div class="pl-3 text-sm font-light text-base-600">
-              Agency Owner, 40+ client sites migrated
-            </div>
+            <div class="pl-3 text-sm font-light text-base-600">Agency Owner, 40+ client sites migrated</div>
           </div>
         </figcaption>
       </figure>
-      
+
       <div class="mt-8">
-        <ButtonLink href="/contact" variant="primary" size="lg">
-          Schedule Free Migration Assessment
-        </ButtonLink>
-        <p class="mt-2 text-sm text-base-600">
-          Limited to 3 assessments per week
-        </p>
+        <ButtonLink href="/contact" variant="primary" size="lg">Schedule Free Migration Assessment</ButtonLink>
+        <p class="mt-2 text-sm text-base-600">Limited to 3 assessments per week</p>
       </div>
     </div>
   </section>

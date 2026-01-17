@@ -4,6 +4,7 @@ const { className = '', variant = 'default' } = Astro.props;
 const variants = {
   default: 'bg-base-100 border border-base-300 rounded-lg shadow-sm',
   bordered: 'bg-base-100 border border-base-300 rounded-lg',
+  ring: 'bg-base-100 ring-2 ring-primary-800 rounded-lg',
   shadow: 'bg-base-100 rounded-lg shadow-sm',
   flat: 'bg-base-100 rounded-lg'
 };
@@ -11,15 +12,15 @@ const variants = {
 
 <div class={`p-6 ${variants[variant]} ${className}`}>
   <!-- Header slot -->
-  <div class="mb-6">
+  <div class="mb-4">
     <slot name="header" />
   </div>
-  
+
   <!-- Body slot (default) -->
   <div class="text-base-800">
     <slot />
   </div>
-  
+
   <!-- Footer slot -->
   <div class="mt-4 pt-4 border-t border-base-300">
     <slot name="footer" />

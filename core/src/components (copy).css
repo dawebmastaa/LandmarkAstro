@@ -1,19 +1,5 @@
 /* EMPIRE DESIGN SYSTEM - DaisyUI Replacement Components */
 
-/* ===== BORDERS ===== */
-.border-primary-50 { border-color: var(--primary-50); }
-.border-primary-100 { border-color: var(--primary-100); }
-.border-primary-200 { border-color: var(--primary-200); }
-.border-primary-300 { border-color: var(--primary-300); }
-.border-primary-400 { border-color: var(--primary-400); }
-.border-primary-500 { border-color: var(--primary-500); }
-.border-primary-600 { border-color: var(--primary-600); }
-.border-primary-700 { border-color: var(--primary-700); }
-.border-primary-800 { border-color: var(--primary-800); }
-.border-primary-900 { border-color: var(--primary-900); }
-.border-primary-950 { border-color: var(--primary-950); }
-
-
 /* ===== BUTTONS ===== */
 .btn {
   display: inline-flex;
@@ -63,19 +49,17 @@
 .btn-secondary {
   background-color: var(--color-btn-secondary-bg);
   color: var(--color-btn-secondary-text);
-  border: .5px solid transparent;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-btn-secondary-hover);
   color: var(--color-btn-secondary-text);
-  border: .5px solid var(--color-border);
 }
 
 .btn-outline {
   background-color: transparent;
   color: var(--color-text);
-  border: .5px solid var(--color-border);
+  border: 1px solid var(--color-border);
 }
 
 .btn-outline:hover {
@@ -190,18 +174,6 @@
 .bg-base-200 { background-color: var(--neutral-100); }
 .bg-base-300 { background-color: var(--neutral-200); }
 
-.bg-primary-50 { background-color: var(--primary-50); }
-.bg-primary-100 { background-color: var(--primary-100); }
-.bg-primary-200 { background-color: var(--primary-200); }
-.bg-primary-300 { background-color: var(--primary-300); }
-.bg-primary-400 { background-color: var(--primary-400); }
-.bg-primary-500 { background-color: var(--primary-500); }
-.bg-primary-600 { background-color: var(--primary-600); }
-.bg-primary-700 { background-color: var(--primary-700); }
-.bg-primary-800 { background-color: var(--primary-800); }
-.bg-primary-900 { background-color: var(--primary-900); }
-.bg-primary-950 { background-color: var(--primary-950); }
-
 /* Link hovers (for ALL links) */
 *:hover {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
@@ -220,19 +192,6 @@ a:hover {
 .text-success { color: var(--color-success-500); }
 .text-warning { color: var(--color-warning-500); }
 .text-error { color: var(--color-error-500); }
-
-/* Primary shades - text colors */
-.text-primary-50 { color: var(--primary-50); }
-.text-primary-100 { color: var(--primary-100); }
-.text-primary-200 { color: var(--primary-200); }
-.text-primary-300 { color: var(--primary-300); }
-.text-primary-400 { color: var(--primary-400); }
-.text-primary-500 { color: var(--primary-500); }
-.text-primary-600 { color: var(--primary-600); }
-.text-primary-700 { color: var(--primary-700); }
-.text-primary-800 { color: var(--primary-800); }
-.text-primary-900 { color: var(--primary-900); }
-.text-primary-950 { color: var(--primary-950); }
 
 .text-base-100 { color: var(--neutral-0); }
 .text-base-200 { color: var(--neutral-100); }
@@ -278,8 +237,8 @@ a:hover {
 
 .bg-gradient-to-br {
   background-image: linear-gradient(
-    to bottom right,
-    var(--gradient-from, var(--primary-700)),
+    to bottom right, 
+    var(--gradient-from, var(--primary-700)), 
     var(--gradient-to, var(--primary-800))
   );
 }

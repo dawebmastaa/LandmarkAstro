@@ -29,13 +29,13 @@ function isActive(href) {
 <header class="p-0 m-0 w-full">
 <nav aria-label="Main navigation" class="bg-base-100 py-2">
   <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-    
+
     <!-- Logo -->
     <a href="/" aria-label="Home" class="flex items-center">
-      <img src="/img/newlogo2.png" class="h-8 mr-3 md:h-12 lg:h-16 2xl:h-20" alt="Rule The Web Return to Homepage" />
+      <img src="/img/newlogo2.png" class="h-8 mr-3 md:h-12 lg:h-16 2xl:h-20" alt="Return to Homepage || Rule The Web" />
       <span class="self-center text-xl md:text-3xl font-semibold whitespace-nowrap text-base-900">Rule The Web</span>
     </a>
-    
+
     <!-- Right side buttons -->
     <div class="flex items-center lg:order-2 md:gap-4">
       <ModeSwitch />
@@ -58,7 +58,7 @@ function isActive(href) {
         </svg>
       </button>
     </div>
-    
+
     <!-- Menu (hidden on mobile) -->
     <div id="mobile-menu" class="hidden w-full lg:flex lg:w-auto lg:order-1">
     <ul class="flex flex-col mt-4 text-lg lg:flex-row lg:space-x-8 lg:mt-0">
@@ -66,7 +66,7 @@ function isActive(href) {
         const active = isActive(item.href);
         return (
           <li class="lg:bg-transparent">
-            <a 
+            <a
               href={item.href}
               class={`block py-2 pl-3 pr-4 border-b border-base-300 lg:border-0 lg:p-0 ${active ? "active" : "text-base-700"}`}
               aria-current={active ? "page" : undefined}

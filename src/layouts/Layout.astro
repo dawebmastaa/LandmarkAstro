@@ -32,10 +32,10 @@ const { title, description, robots, sitename = "Rule The Web" } = Astro.props;
           (function() {
             const savedTheme = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
+
             // Priority: saved theme > system preference > light
             const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-            
+
             document.documentElement.setAttribute('data-theme', theme);
           })();
         </script>
