@@ -9,6 +9,7 @@
 
 # dependencies
 node_modules/
+.astro/
 
 # logs
 npm-debug.log*
@@ -24,4 +25,3 @@ pnpm-debug.log*
 public/icons/
 .vscode/
 github.io.code-workspace
-node_modules

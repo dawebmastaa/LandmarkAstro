@@ -3,15 +3,6 @@
 /* ===== BORDERS ===== */
 .border-primary-50 { border-color: var(--primary-50); }
 .border-primary-100 { border-color: var(--primary-100); }
-.border-primary-200 { border-color: var(--primary-200); }
-.border-primary-300 { border-color: var(--primary-300); }
-.border-primary-400 { border-color: var(--primary-400); }
-.border-primary-500 { border-color: var(--primary-500); }
-.border-primary-600 { border-color: var(--primary-600); }
-.border-primary-700 { border-color: var(--primary-700); }
-.border-primary-800 { border-color: var(--primary-800); }
-.border-primary-900 { border-color: var(--primary-900); }
-.border-primary-950 { border-color: var(--primary-950); }
 
 
 /* ===== BUTTONS ===== */
@@ -192,15 +183,15 @@
 
 .bg-primary-50 { background-color: var(--primary-50); }
 .bg-primary-100 { background-color: var(--primary-100); }
-.bg-primary-200 { background-color: var(--primary-200); }
-.bg-primary-300 { background-color: var(--primary-300); }
-.bg-primary-400 { background-color: var(--primary-400); }
-.bg-primary-500 { background-color: var(--primary-500); }
-.bg-primary-600 { background-color: var(--primary-600); }
-.bg-primary-700 { background-color: var(--primary-700); }
-.bg-primary-800 { background-color: var(--primary-800); }
-.bg-primary-900 { background-color: var(--primary-900); }
-.bg-primary-950 { background-color: var(--primary-950); }
+.bg-primary-100 { background-color: var(--primary-200); }
+.bg-primary-100 { background-color: var(--primary-300); }
+.bg-primary-100 { background-color: var(--primary-400); }
+.bg-primary-100 { background-color: var(--primary-500); }
+.bg-primary-100 { background-color: var(--primary-600); }
+.bg-primary-100 { background-color: var(--primary-700); }
+.bg-primary-100 { background-color: var(--primary-800); }
+.bg-primary-100 { background-color: var(--primary-900); }
+.bg-primary-100 { background-color: var(--primary-950); }
 
 /* Link hovers (for ALL links) */
 *:hover {
@@ -278,8 +269,8 @@ a:hover {
 
 .bg-gradient-to-br {
   background-image: linear-gradient(
-    to bottom right,
-    var(--gradient-from, var(--primary-700)),
+    to bottom right, 
+    var(--gradient-from, var(--primary-700)), 
     var(--gradient-to, var(--primary-800))
   );
 }
