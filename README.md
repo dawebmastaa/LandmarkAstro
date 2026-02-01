@@ -3,6 +3,10 @@ A clean modern frameowork for basic small business websites with static content 
 
 Optimized Semantic HTML, Accessibility, Responsiveness, Schema, SEO, performance. You know, the important stuff that actually matters.
 
+View it at https://test1.ruletheweb.us
+
+Design, build and host completely for free. Only cost is a domain name for a complete small business stack.
+
 
 ## 💻 Tech Stack
 
