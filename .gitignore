@@ -2,14 +2,12 @@
 #dist/
 .output/
 
-# generated types
-.astro/
-
 .zed
 
 # dependencies
 node_modules/
 .astro/
+deno.lock
 
 # logs
 npm-debug.log*

@@ -1,5 +1,5 @@
 {
-  "name": "RuleTheWeb",
+  "name": "RuleTheWeb Level 1",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -14,11 +14,8 @@
   },
   "dependencies": {
     "astro": "latest",
-    "sharp": "latest",
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest",
-    "@astrojs/mdx": "latest",
-    "astro-auto-import": "latest",
     "@astrojs/sitemap": "latest"
   },
   "devDependencies": {

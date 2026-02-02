@@ -9,7 +9,7 @@ Design, build and host completely for free. Only cost is a domain name for a com
 
 Free contact form processing: Tally -> Make -> Zoho Mail.
 
-Free appointment booking calendar: Cal -> Pabble Connect -> Zoho Mail and Calendar
+Free appointment booking calendar: Cal -> Pabbly Connect -> Zoho Mail and Calendar
 
 Free AI Chatbot: Crisp
 

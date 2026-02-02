@@ -1,13 +1,10 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@astrojs/mdx@latest": "4.3.10_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76",
     "npm:@astrojs/sitemap@latest": "3.6.0",
     "npm:@biomejs/biome@latest": "2.3.5",
     "npm:@tailwindcss/vite@latest": "4.1.17_vite@6.4.1__picomatch@4.0.3",
-    "npm:astro-auto-import@latest": "0.5.1_astro@5.15.8__vite@6.4.1___picomatch@4.0.3__zod@3.25.76",
     "npm:astro@latest": "5.15.8_vite@6.4.1__picomatch@4.0.3_zod@3.25.76",
-    "npm:sharp@latest": "0.34.5",
     "npm:tailwindcss@latest": "4.1.17"
   },
   "npm": {
@@ -2905,13 +2902,10 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@astrojs/mdx@latest",
         "npm:@astrojs/sitemap@latest",
         "npm:@biomejs/biome@latest",
         "npm:@tailwindcss/vite@latest",
-        "npm:astro-auto-import@latest",
         "npm:astro@latest",
-        "npm:sharp@latest",
         "npm:tailwindcss@latest"
       ]
     }
