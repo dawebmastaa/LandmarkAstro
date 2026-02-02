@@ -7,6 +7,16 @@ View it at https://test1.ruletheweb.us
 
 Design, build and host completely for free. Only cost is a domain name for a complete small business stack.
 
+Free contact form processing: Tally -> Make -> Zoho Mail.
+
+Free appointment booking calendar: Cal -> Pabble Connect -> Zoho Mail and Calendar
+
+Free AI Chatbot: Crisp
+
+Free Domain email: Zoho Mail
+
+Buy a domain for $10.00, get an entire business webstack for free.
+
 
 ## 💻 Tech Stack
 
@@ -26,7 +36,7 @@ Design, build and host completely for free. Only cost is a domain name for a com
 
   <h3>Tools</h3>
   <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=bun,deno,nodejs,npm,pnpm,vite" />
+  <img src="https://skillicons.dev/icons?i=bun,deno,nodejs,npm,pnpm,vite,vscodium" />
   </a>
 </p>
 <p>
