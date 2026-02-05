@@ -1,8 +1,8 @@
 ---
 import ButtonLink from '../ui/ButtonLink.astro';
 import ModeSwitch from '../ui/ModeSwitch.astro';
-const sitename = Astro.props;
-const currentPath = Astro.url.pathname;
+const { currentPath } = Astro.props;
+//const currentPath = Astro.url.pathname;
 
 //const pathname = new URL(Astro.request.url).pathname;
 //const currentPath = pathname.slice(1);

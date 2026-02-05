@@ -10,9 +10,10 @@ interface Props {
     description: string;
     robots: string;
     sitename: string;
+    currentPath: string;
 }
 
-const { title, description, robots, sitename = "Rule The Web" } = Astro.props;
+const { title, description, robots, sitename = "Rule The Web", currentPath = Astro.url.pathname } = Astro.props;
 ---
 <!doctype html>
 <html lang="en" data-theme="light">
@@ -25,8 +26,7 @@ const { title, description, robots, sitename = "Rule The Web" } = Astro.props;
         <link rel="icon" href="/img/logo.svg" />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <Meta title={title} description={description} robots={robots} sitename={sitename} />
-        <Schema types={['website', 'webpage']} sitename={sitename} title={title} description={description} />
-
+        <Schema sitename={sitename} title={title} description={description} noSiteSearch={true}  />
         <script is:inline>
           // IMMEDIATE theme detection (no flash)
           (function() {
@@ -43,7 +43,7 @@ const { title, description, robots, sitename = "Rule The Web" } = Astro.props;
 
     <body lang="en" dir="ltr">
       <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4">Skip to main content</a>
-        <Header sitename={sitename} />
+        <Header sitename={sitename}, currentPath={currentPath} />
         <main id="main">
           <slot />
         </main>
