@@ -407,4 +407,4 @@ a:hover {
 [data-theme="dark"] nav a.active { color: var(--neutral-900); }
 
 /* Mobile nav item hover */
-nav li:hover { background-color: var(--color-bg-muted); }
+@media (width <= 64rem) { nav li:hover { background-color: var(--color-bg-muted); } }
