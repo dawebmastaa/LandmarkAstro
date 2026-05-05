@@ -6,11 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "format": "biome format --write .",
-    "lint": "biome lint --write .",
-    "check": "biome check --write .",
-    "check:ci": "biome check ."
+    "preview": "astro preview"
   },
   "dependencies": {
     "astro": "latest",
@@ -18,8 +14,5 @@
     "tailwindcss": "latest",
     "@tailwindcss/vite": "latest",
     "@astrojs/sitemap": "latest"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "latest"
   }
 }
