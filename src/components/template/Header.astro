@@ -19,7 +19,7 @@ const menuItems = [
   { href: '/contact/', label: 'Contact' },
 ];
 
-function isActive(href) {
+function isActive(href: string) {
   // Remove trailing slash from both for comparison
   const normalizedCurrent = currentPath.replace(/\/$/, '');
   const normalizedHref = href.replace(/\/$/, '');
@@ -32,7 +32,7 @@ function isActive(href) {
     <!-- Logo -->
     <a href="/" aria-label="Home" class="flex items-center" title="click to return to the Homepage">
       <img src="/img/newlogo2.png" class="h-10 md:h-12 lg:h-16 mr-3" alt="Return to Homepage || { sitename }" />
-      <span class="self-center text-2xl md:text-3xl xl:text-4xl font-semibold whitespace-nowrap text-base-900">{ sitename }</span>
+      <span class="self-center text-2xl md:text-3xl xl:text-4xl font-semibold whitespace-nowrap">{ sitename }</span>
     </a>
     <!-- Right side buttons -->
     <div class="flex items-center lg:order-2 md:gap-4">
@@ -43,7 +43,7 @@ function isActive(href) {
       <!-- Hamburger button -->
       <button
         id="mobile-toggle"
-        class="inline-flex items-center p-2 ml-1 text-sm text-base-600 rounded-lg lg:hidden hover:bg-base-200 focus:outline-none focus:ring-2 focus:ring-base-300"
+        class="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -66,7 +66,7 @@ function isActive(href) {
           <li class="lg:bg-transparent">
             <a
               href={item.href}
-              class={`block py-2 pl-3 pr-4 border-b border-base-300 lg:border-0 lg:p-0 ${active ? "active font-semibold" : "text-base-700"}`}
+              class={`block py-2 pl-3 pr-4 border-b border-base-300 lg:border-0 lg:p-0 ${active ? "active font-semibold text-primary" : ""}`}
               aria-current={active ? "page" : undefined}
             >
               {item.label}

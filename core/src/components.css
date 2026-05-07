@@ -400,11 +400,5 @@ a:hover {
   box-shadow: var(--shadow-xl);
 }
 
-/* Dark theme specific overrides will be handled by data-theme attributes */
-
-[data-theme="light"] nav a.active { color: var(--color-primary); }
-
-[data-theme="dark"] nav a.active { color: var(--neutral-900); }
-
 /* Mobile nav item hover */
 @media (width <= 64rem) { nav li:hover { background-color: var(--color-bg-muted); } }
