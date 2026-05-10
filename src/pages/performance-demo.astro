@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import ButtonLink from "@/components/ui/ButtonLink.astro";
 ---
 
 <Layout
@@ -58,7 +59,7 @@ import Layout from "@/layouts/Layout.astro";
       </div>
 
       <div class="text-center">
-        <a href="/contact" class="inline-block bg-heliotrope-600 text-white px-8 py-4 rounded-lg text-md md:text-lg font-semibold hover:bg-heliotrope-700">Get Your Free Performance Audit</a>
+          <ButtonLink href="/contact/" variant="primary" size="lg" class="border border-white">Get Your Free Performance Audit</ButtonLink>
         <p class="mt-4">Limited to 3 audits per week</p>
       </div>
     </div>

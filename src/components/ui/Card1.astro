@@ -2,11 +2,14 @@
 const { className = '', variant = 'default' } = Astro.props;
 
 const variants = {
-  default: 'bg-base-100 border border-base-300 rounded-lg shadow-sm',
-  bordered: 'bg-base-100 border border-base-300 rounded-lg',
-  ring: 'bg-base-100 ring ring-primary-800 rounded-lg',
-  shadow: 'bg-base-100 rounded-lg shadow-sm',
-  flat: 'bg-base-100 rounded-lg'
+	default: "bg-base-100 border border-base-300 rounded-xl",
+	bordered: "bg-base-300 border border-primary-500 rounded-lg",
+	ring: 'bg-base-100 ring ring-primary-800 rounded-lg',
+	shadow: "bg-base-100 rounded-lg shadow-md",
+	flat: "bg-base-100 rounded-lg",
+	gradient: "bg-gradient-to-br from-primary-800 to-secondary-800 rounded-lg",
+	gradient2: "bg-gradient-to-bl from-secondary-800 to-primary-800 rounded-lg",
+  dark: "bg-primary-900 rounded-lg shadow-md",
 };
 ---
 
